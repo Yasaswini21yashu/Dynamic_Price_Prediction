@@ -1,0 +1,20 @@
+{% extends 'admins/AdminBase.html' %}
+{% load static %}
+{% block contents %}
+<style>
+    .content-container {
+        background-color: rgba(255, 255, 255, 0.658); /* Semi-transparent background */
+        padding: 2em;
+        border-radius: 10px;
+    }
+</style>
+<div>
+    <center><p><h3 align="center" style="color: navy;">Welcome To Admin HomePage.....</h3></p></center>  
+
+    </div>
+<div class="container content-container animate__animated animate__fadeInUp">
+    <h2 style="color: black;">Welcome to Dynamic Pricing Prediction</h2>
+    <p style="color: black;">This platform allows users and administrators to predict and manage dynamic pricing based on various factors. You can explore the user interface for additional features like registration, admin controls, and real-time pricing predictions.</p>
+    <p style="color: black;">The system is built with a focus on accurate prediction models and user-friendly interfaces to enhance decision-making in pricing strategies.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'users/UserHome.html' %}
+{% load static %}
+
+{% block contents %}
+<h1>Model Accuracy</h1>
+<div align="center" style="font-weight:bold; color:rgb(24, 23, 23);">
+<table border="2"  style="background-color: aliceblue;">
+    <thead>
+    <tr>
+    <tr>
+        <th style="padding: 15px; border: 2px solid #000;">Algorithm Name</th>
+        <th style="padding: 15px; border: 2px solid #000;">Mean Absolute Error</th>
+        <th style="padding: 15px; border: 2px solid #000;">Mean Square Error</th>
+        <th style="padding: 15px; border: 2px solid #000;">R2-Score</th>
+        <th style="padding: 15px; border: 2px solid #000;">Root Mean Square Error</th>
+        <th style="padding: 15px; border: 2px solid #000;">Accuracy</th>
+    </tr>
+    <tbody>
+    <tr>
+        <td style="padding: 15px; border: 2px solid #000;">Random Forest Regression</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{mae_rf}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{mse_rf}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{r2_rf}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{rmse_rf}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{rf_score}}</td>
+    </tr>
+    <tr>
+        <td style="padding: 15px; border: 2px solid #000;">XGBoost</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{mae_xgb}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{mse_xgb}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{r2_xgb}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{rmse_xgb}}</td>
+        <td style="padding: 15px; border: 2px solid #000;">{{xgb_score}}</td>
+    </tr>
+    </tbody>
+    </tr>
+    </thead>
+
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section>
+    <div class="container mt-5">
+        <div class="card" style="width: 5in; margin: 0 auto; color:rgba(255, 248, 220, 0.663);">
+            <!-- Centered card -->
+            <div class="card-header">
+                <h3 class="text-center" style="color:brown; font-weight: bold;">User Register Form</h3>
+                <!-- Highlight text -->
+            </div>
+            <div class="card-body" style="padding: 15px; color:black;">
+                <!-- Reduced padding -->
+                <form action="{% url 'UserRegisterActions' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="name" style="font-weight: bold;">User Name:</label>
+                        <!-- Bold label -->
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="loginid" style="font-weight: bold;">Login ID:</label>
+                        <!-- Bold label -->
+                        {{ form.loginid }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" style="font-weight: bold;">Password:</label>
+                        <!-- Bold label -->
+                        {{ form.password }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="mobile" style="font-weight: bold;">Mobile:</label>
+                        <!-- Bold label -->
+                        {{ form.mobile }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email" style="font-weight: bold;">Email:</label>
+                        <!-- Bold label -->
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="locality" style="font-weight: bold;">Locality:</label>
+                        <!-- Bold label -->
+                        {{ form.locality }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="address" style="font-weight: bold;">Address:</label>
+                        <!-- Bold label -->
+                        {{ form.address }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="city" style="font-weight: bold;">City:</label>
+                        <!-- Bold label -->
+                        {{ form.city }}
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="state" style="font-weight: bold;">State:</label>
+                        <!-- Bold label -->
+                        {{ form.state }}
+                    </div>
+                    <div class="form-group mb-3">
+                        {{ form.status }}
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-warning mt-2">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</section>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'users/UserHome.html' %}
+{% load static %}
+
+{% block contents %}
+    <div class="container mt-5">
+        <h2 class="text-center">Predict Historical Cost of Ride</h2>
+        
+        <!-- Display predictions after form submission -->
+        {% if prediction_xgb %}
+        <div class="alert alert-success">
+            <h4>Cost of Ride</h4>
+            <p>{{ prediction_xgb }}</p>
+            <!-- <p><strong>Random Forest Model Prediction:</strong> {{ prediction_rf }}</p> -->
+        </div>
+        {% endif %}
+
+        <!-- Ride Input Form -->
+        <form method="POST" action="">
+            {% csrf_token %}
+            
+            <!-- Number of Riders -->
+            <div class="mb-3">
+                <label for="Number_of_Riders" class="form-label">Number of Riders</label>
+                <input type="number" class="form-control" id="Number_of_Riders" name="Number_of_Riders" required>
+            </div>
+
+            <!-- Number of Drivers -->
+            <div class="mb-3">
+                <label for="Number_of_Drivers" class="form-label">Number of Drivers</label>
+                <input type="number" class="form-control" id="Number_of_Drivers" name="Number_of_Drivers" required>
+            </div>
+
+            <!-- Location Category -->
+            <div class="mb-3">
+                <label for="Location_Category" class="form-label">Location Category</label>
+                <input type="text" class="form-control" id="Location_Category" name="Location_Category" placeholder="Enter Urban, Suburban, or Rural" required>
+            </div>
+
+            <!-- Customer Loyalty Status -->
+            <div class="mb-3">
+                <label for="Customer_Loyalty_Status" class="form-label">Customer Loyalty Status</label>
+                <input type="text" class="form-control" id="Customer_Loyalty_Status" name="Customer_Loyalty_Status" placeholder="Enter Silver, Regular, or Gold" required>
+            </div>
+
+            <!-- Number of Past Rides -->
+            <div class="mb-3">
+                <label for="Number_of_Past_Rides" class="form-label">Number of Past Rides</label>
+                <input type="number" class="form-control" id="Number_of_Past_Rides" name="Number_of_Past_Rides" required>
+            </div>
+
+            <!-- Average Ratings -->
+            <div class="mb-3">
+                <label for="Average_Ratings" class="form-label">Average Ratings</label>
+                <input type="number" step="0.01" class="form-control" id="Average_Ratings" name="Average_Ratings" required>
+            </div>
+
+            <!-- Time of Booking -->
+            <div class="mb-3">
+                <label for="Time_of_Booking" class="form-label">Time of Booking</label>
+                <input type="text" class="form-control" name="Time_of_Booking" placeholder="Enter Night, Evening, Afternoon, or Morning" required>
+            </div>
+
+            <!-- Vehicle Type -->
+            <div class="mb-3">
+                <label for="Vehicle_Type" class="form-label">Vehicle Type</label>
+                <input type="text" class="form-control" id="Vehicle_Type" name="Vehicle_Type" placeholder="Enter Economy or Premium" required>
+            </div>
+
+            <!-- Expected Ride Duration -->
+            <div class="mb-3">
+                <label for="Expected_Ride_Duration" class="form-label">Expected Ride Duration (minutes)</label>
+                <input type="number" class="form-control" id="Expected_Ride_Duration" name="Expected_Ride_Duration" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Predict Ride Cost</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

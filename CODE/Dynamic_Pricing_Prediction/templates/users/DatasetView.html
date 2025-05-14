@@ -1,0 +1,53 @@
+{% extends 'users/UserBase.html' %}
+{% load static %}
+
+{% block contents %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Dataset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color:black
+        }
+
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid rgba(79, 125, 166, 0.789);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color:steelblue;
+            color:black;
+        }
+    </style>
+
+    <div>
+        <h2 style="text-align: center;">View Dataset</h2>
+        <table>
+            <thead>
+                <tr>
+                    {% for column in d.columns %}
+                        <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in d.values %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

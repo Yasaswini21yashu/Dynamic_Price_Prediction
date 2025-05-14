@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section>
+    <div class="container mt-5">
+        <div class="card" style="width: 5in; margin: 0 auto; color:rgba(255, 248, 220, 0.778);">  <!-- Centered card -->
+            <div class="card-header">
+                <h3 class="text-center" style="color:crimson; font-weight: bold;">User Login Form</h3>  <!-- Highlight text -->
+            </div>
+            <div class="card-body" style="padding: 15px; color:black;">  <!-- Reduced padding -->
+                <form method = 'POST' action="{% url 'UserLoginCheck' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username" style="font-weight: bold;">User ID:</label>  <!-- Bold label -->
+                        <input type="text" class="form-control" id="username" placeholder="Enter User ID" name="loginid">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" style="font-weight: bold;">Password:</label>  <!-- Bold label -->
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="pswd">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</section>
+{% endblock %}
